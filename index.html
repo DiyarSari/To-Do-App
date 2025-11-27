@@ -2,12 +2,36 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <link rel="icon" type="image/png" href="todo-icon-new.png" />
+        <link rel="icon" type="image/png" href="todo_icon.png" />
         <meta name="viewport" content="width-device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
         <title>To-Do App</title>
     </head>
     <body>  
+        <div class="app_container">
+            <div class="todo_card">
+                <h1 class="main_title">To Do List</h1>
+                <p class="subtitle"> Add your tasks and stay in control </p>
+            
+            <form id="todo_form" class="todo_form">
+                <input type="text"
+                id="todo_input"
+                class="todo_input"
+                placeholder="Write a new task"
+                autocomplete="off"
+                >
+                    <div class="button_grup">
+                        <button id="button_add" class="button_add" type="button">Create</button>
+                        <button id="button_update" class="button_update" type="button">Update</button>
+                        <button id="button_delete" class="button_delete" type="button">Delete</button>
+                    </div>
+            </form>
+                <ul id="todo_list" class="todo_list"></ul>
+                
+                <p id="empty_text" class="empty_text">No tasks have been added yet</p>
+
+            </div>
+        </div>
         <script src="script.js"></script>
     </body>
 
