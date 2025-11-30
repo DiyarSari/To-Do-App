@@ -54,6 +54,15 @@
     selectedItem.textContent =newText;
   })
 
+  buttonDelete.addEventListener("click", function() {
+    if (!selectedItem) return;
+    selectedItem.remove();
+    todoInput.value ="";
+    update_empty_message();
+  });
+
+  update_empty_message();
+
 
 
 
