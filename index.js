@@ -6,6 +6,8 @@
     const buttonUpdate = document.getElementById("button_update")
     const buttonDelete = document.getElementById("button_delete")
 
+    let selectedItem=null;
+
     function update_empty_message(){
         if(todoList.children.length === 0){
             emptyText.style.display = "block";
@@ -14,3 +16,5 @@
             emptyText.style.display = "none"
         }
     }
+
+    
