@@ -23,42 +23,42 @@ body {
 .todo_card {
   background: #020617;
   border-radius: 18px;
-  padding: 100px 30px;
+  padding: 48px 32px;
   border: 1px solid #4b5563;
   box-shadow: 0 14px 30px rgba(0, 0, 0, 0.7);
 }
 
 .main_title {
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 700;
   background: linear-gradient(120deg, #38bdf8, #22c55e);
   -webkit-background-clip: text;
   color: transparent;
   text-align: center;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .subtitle {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: #9ca3af;
   text-align: center;
-  margin-bottom: 14px;
+  margin-bottom: 18px;
 }
 
 .todo_form {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 
 .todo_input {
   width: 100%;
-  padding: 9px 11px;
+  padding: 10px 12px;
   border-radius: 12px;
   border: 1px solid #4b5563;
   background: #020617;
   color: #e5e7eb;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   outline: none;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
@@ -74,8 +74,8 @@ body {
 
 .button_grup {
   display: flex;
-  gap: 8px;
-  margin-top: 4px;
+  gap: 10px;
+  margin-top: 6px;
 }
 
 .button_add,
@@ -84,8 +84,8 @@ body {
   flex: 1;
   border: none;
   border-radius: 999px;
-  padding: 8px 0;
-  font-size: 0.85rem;
+  padding: 10px 0;
+  font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
   color: #e5e7eb;
@@ -113,23 +113,23 @@ body {
 
 .todo_list {
   list-style: none;
-  margin-top: 14px;
+  margin-top: 18px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  max-height: 220px;
+  gap: 8px;
+  max-height: 260px;
   overflow-y: auto;
 }
 
 .todo_item {
-  padding: 8px 10px;
+  padding: 9px 11px;
   border-radius: 12px;
   background: #020617;
   border: 1px solid #4b5563;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   display: flex;
   justify-content: space-between;
-  gap: 6px;
+  gap: 8px;
   cursor: pointer;
   transition: background 0.18s ease, border-color 0.18s ease;
 }
@@ -145,42 +145,72 @@ body {
 }
 
 .empty_text {
-  margin-top: 10px;
+  margin-top: 12px;
   text-align: center;
   font-size: 0.85rem;
   color: #6b7280;
   font-style: italic;
 }
 
+/* MOBİL: 0–700px */
 @media (max-width: 700px) {
- 
-    body {
+  body {
     padding: 12px;
   }
 
+  .app_container {
+    max-width: 100%;
+  }
+
   .todo_card {
-    padding: 16px;
+    padding: 20px 16px;
+    border-radius: 14px;
   }
 
   .main_title {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
+    margin-bottom: 6px;
+  }
+
+  .subtitle {
+    font-size: 0.85rem;
+    margin-bottom: 12px;
   }
 
   .button_grup {
     flex-direction: column;
+    gap: 6px;
+  }
+
+  .button_add,
+  .button_update,
+  .button_delete {
+    padding: 8px 0;
+    font-size: 0.8rem;
+    border-radius: 12px;
+  }
+
+  .todo_list {
+    max-height: 220px;
   }
 }
 
+/* TABLET: 701–1200px */
 @media (min-width: 701px) and (max-width: 1200px) {
   .app_container {
-    max-width: 520px;
+    max-width: 720px;
   }
 
   .todo_card {
-    padding: 22px 20px;
+    padding: 32px 24px;
   }
 
   .main_title {
-    font-size: 1.9rem;
+    font-size: 1.8rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
   }
 }
+
