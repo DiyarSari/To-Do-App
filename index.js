@@ -14,5 +14,3 @@
             emptyText.style.display = "none"
         }
     }
-
-    
