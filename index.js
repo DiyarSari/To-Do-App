@@ -47,6 +47,13 @@
       update_empty_message();
   });
 
+  buttonUpdate.addEventListener("click", function() {
+    if(!selectedItem) return;
+    const newText = todoInput.value.trim();
+    if(newText=== "")   return;
+    selectedItem.textContent =newText;
+  })
+
 
 
 
