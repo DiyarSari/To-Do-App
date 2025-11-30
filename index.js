@@ -17,12 +17,19 @@
         }
     }
     
-    todoInput.addEventListener("keydown", (e) => {
+    todoInput.addEventListener("keydown", function(e) {
     if (e.key=== "Enter") {
         e.preventDefault();     
     }
 
     });
+    
+    todoInput.addEventListener("focus", () => {
+  if (selectedItem) {
+    selectedItem.classList.remove("selected");
+    selectedItem = null;
+  }
+});
 
     function selectItem(li) {
         if(selectedItem){
