@@ -11,10 +11,21 @@
     function update_empty_message(){
         if(todoList.children.length === 0){
             emptyText.style.display = "block";
-        }
-        else {
+    }
+        else  {
             emptyText.style.display = "none"
         }
     }
 
-    
+    function selectItem(li) {
+        if(selectedItem){
+            selectedItem.classList.remove("selected");
+
+        }
+        selectedItem= li;
+        selectedItem.classList.add("selected");
+        todoInput.value = selectItem.textContent;
+        todoInput.focus();
+    }
+
+
