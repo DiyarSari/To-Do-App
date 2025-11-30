@@ -23,13 +23,6 @@
     }
 
     });
-    
-    todoInput.addEventListener("focus", () => {
-  if (selectedItem) {
-    selectedItem.classList.remove("selected");
-    selectedItem = null;
-  }
-});
 
     function selectItem(li) {
         if(selectedItem){
