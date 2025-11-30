@@ -16,6 +16,13 @@
             emptyText.style.display = "none"
         }
     }
+    
+    todoInput.addEventListener("keydown", (e) => {
+    if (e.key=== "Enter") {
+        e.preventDefault();     
+    }
+
+    });
 
     function selectItem(li) {
         if(selectedItem){
@@ -24,8 +31,6 @@
         }
         selectedItem= li;
         selectedItem.classList.add("selected");
-        todoInput.value = selectItem.textContent;
-        todoInput.focus();
     }
 
     buttonAdd.addEventListener("click", function ()  {
