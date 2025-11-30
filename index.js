@@ -28,4 +28,25 @@
         todoInput.focus();
     }
 
+    buttonAdd.addEventListener("click", function ()  {
+        const text =todoInput.value.trim();
+        if (text=== "")return;
+
+        const li = document.createElement("li");
+        li.textContent =text
+        li.className ="todo_item";
+
+        li.addEventListener("click", function () {
+            selectItem(li);
+
+        }
+      );
+      todoList.appendChild(li);
+      todoInput.value = "";
+      todoInput.focus();
+      update_empty_message();
+  });
+
+
+
 
