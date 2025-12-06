@@ -47,12 +47,7 @@
             idSpan.textContent = (index + 1) + ".";
         }
     });
-    
-    }
 
-    todoInput.addEventListener("keydown", function(e) {
-    if (e.key=== "Enter") {
-        e.preventDefault();     
     }
 
     });
