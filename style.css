@@ -86,8 +86,7 @@ body {
 }
 
 .button_add,
-.button_update,
-.button_delete {
+.button_update {
   flex: 1;
   border: none;
   border-radius: 999px;
@@ -99,6 +98,11 @@ body {
   transition: transform 0.12s ease, box-shadow 0.18s ease;
 }
 
+.button_delete {
+  display: none;
+}
+
+
 .button_add {
   background: #16a34a;
 }
@@ -107,13 +111,8 @@ body {
   background: #0284c7;
 }
 
-.button_delete {
-  background: #b91c1c;
-}
-
 .button_add:hover,
-.button_update:hover,
-.button_delete:hover {
+.button_update:hover {
   transform: translateY(-1px);
   box-shadow: 0 10px 22px rgba(0, 0, 0, 0.6);
 }
