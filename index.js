@@ -16,7 +16,40 @@
             emptyText.style.display = "none"
         }
     }
+
+    function buildItem(text) {
+    const li = document.createElement("li");
+    li.className = "todo_item";
+
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.style.marginRight = "8px";
+
+    const idSpan = document.createElement("span");
+    idSpan.className = "todo_id";
+    idSpan.style.marginRight = "8px";
+
+    const textSpan = document.createElement("span");
+    textSpan.className = "todo_text";
+    textSpan.textContent = text;
+
+    li.appendChild(checkbox); 
+    li.appendChild(idSpan);   
+    li.appendChild(textSpan); 
+
+    return li;
+    }
+
+    function update_ids() {
+    [...todoList.children].forEach((li, index) => {
+        const idSpan = li.querySelector(".todo_id");
+        if (idSpan) {
+            idSpan.textContent = (index + 1) + ".";
+        }
+    });
     
+    }
+
     todoInput.addEventListener("keydown", function(e) {
     if (e.key=== "Enter") {
         e.preventDefault();     
