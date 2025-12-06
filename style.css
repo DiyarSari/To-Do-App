@@ -51,10 +51,6 @@ body {
   gap: 10px;
 }
 
-.input_wrap {
-  position: relative;
-}
-
 .todo_input {
   width: 100%;
   padding: 10px 12px;
@@ -123,6 +119,10 @@ body {
   padding: 6px 14px;
   font-size: 0.8rem;
   border-radius: 8px;
+}
+
+.input_wrap {
+  position: relative;
 }
 
 .todo_list {
