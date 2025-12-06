@@ -17,6 +17,23 @@
         }
     }
 
+    function update_status() {
+         let completed = 0;
+         let waiting = 0;
+
+    [...todoList.children].forEach(li => {
+    const checkbox = li.querySelector("input[type='checkbox']");
+    if (checkbox && checkbox.checked) {
+      completed++;
+    } else {
+      waiting++;
+    } 
+    });
+
+  document.getElementById("status_info").textContent =
+    `✔ Completed: ${completed} • ⌛ Waiting: ${waiting}`;
+}
+
     function buildItem(text) {
     const li = document.createElement("li");
     li.className = "todo_item";
@@ -47,6 +64,7 @@
     li.appendChild(checkbox); 
     li.appendChild(idSpan);   
     li.appendChild(textSpan); 
+    update_status();
 
     return li;
     }
@@ -86,6 +104,8 @@
       todoInput.focus();
       update_empty_message();
       update_ids();
+      update_status();
+
   });
 
   buttonUpdate.addEventListener("click", function() {
@@ -104,7 +124,11 @@
     todoInput.value ="";
     update_empty_message();
     update_ids();
+    update_status();
+
   });
 
   update_empty_message();
+  update_status();
+
 
