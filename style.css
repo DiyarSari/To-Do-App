@@ -51,6 +51,13 @@ body {
   gap: 10px;
 }
 
+.todo_item {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  justify-content: flex-start;
+}
+
 .todo_input {
   width: 100%;
   padding: 10px 12px;
@@ -116,7 +123,7 @@ body {
   margin-top: 18px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 5px;
   max-height: 260px;
   overflow-y: auto;
 }
@@ -128,7 +135,7 @@ body {
   border: 1px solid #4b5563;
   font-size: 0.95rem;
   display: flex;
-  justify-content: space-between;
+  align-items: center;
   gap: 8px;
   cursor: pointer;
   transition: background 0.18s ease, border-color 0.18s ease;
