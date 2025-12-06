@@ -92,7 +92,7 @@ body {
   border-radius: 999px;
   padding: 10px 0;
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 100;
   cursor: pointer;
   color: #e5e7eb;
   transition: transform 0.12s ease, box-shadow 0.18s ease;
@@ -196,6 +196,18 @@ body {
   padding: 6px 14px;
   font-size: 0.8rem;
   border-radius: 8px;
+}
+
+.todo_checkbox {
+  margin-right: 5px;
+}
+.todo_id {
+  margin-right: 5px;
+}
+
+.button_add:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 /* MOBİL: 0–700px */

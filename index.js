@@ -6,7 +6,7 @@ const buttonUpdate = document.getElementById("button_update");
 const statusInfo  = document.getElementById("status_info");
 
 let selectedItem = null;
-
+buttonAdd.disabled = true; 
 
 function updateEmptyMessage() {
   emptyText.style.display = todoList.children.length === 0 ? "block" : "none";
@@ -44,10 +44,10 @@ function buildItem(text) {
   li.className = "todo_item";
 
   const checkbox = document.createElement("input");
-  checkbox.type = "checkbox";
-  checkbox.style.marginRight = "5px";
+    checkbox.type = "checkbox";
+    checkbox.className = "todo_checkbox";
 
-  checkbox.addEventListener("change", () => {
+    checkbox.addEventListener("change", () => {
     const textSpan = li.querySelector(".todo_text");
     if (checkbox.checked) {
       alert("Task completed! ✔");
@@ -57,12 +57,9 @@ function buildItem(text) {
     }
     updateStatus();
   });
-
  
   const idSpan = document.createElement("span");
   idSpan.className = "todo_id";
-  idSpan.style.marginRight = "5px";
-
 
   const textSpan = document.createElement("span");
   textSpan.className = "todo_text";
@@ -91,7 +88,6 @@ function buildItem(text) {
 
   li.addEventListener("click", () => {
     selectItem(li);
-    const textSpan = li.querySelector(".todo_text");
     todoInput.value = textSpan.textContent;
     todoInput.focus();
   });
@@ -129,6 +125,10 @@ todoInput.addEventListener("keydown", (e) => {
   }
 });
 
+todoInput.addEventListener("input", () => {
+  buttonAdd.disabled = todoInput.value.trim() === "";
+});
+
 
 buttonUpdate.addEventListener("click", () => {
   if (!selectedItem) return;
@@ -140,7 +140,10 @@ buttonUpdate.addEventListener("click", () => {
   if (textSpan) {
     textSpan.textContent = newText;
   }
+
+  todoInput.value = "";
 });
 
 updateEmptyMessage();
 updateStatus();
+
