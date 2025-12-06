@@ -16,7 +16,14 @@
             emptyText.style.display = "none"
         }
     }
-    
+
+        function update_ids() {
+            [...todoList.children].forEach((li, index) => {
+            li.textContent = (index + 1) + ". " + li.textContent.replace(/^\d+\.\s/, "");
+        
+        });
+    }
+
     todoInput.addEventListener("keydown", function(e) {
     if (e.key=== "Enter") {
         e.preventDefault();     
@@ -50,6 +57,8 @@
       todoInput.value = "";
       todoInput.focus();
       update_empty_message();
+      update_ids();
+
   });
 
   buttonUpdate.addEventListener("click", function() {
@@ -57,6 +66,8 @@
     const newText = todoInput.value.trim();
     if(newText=== "")   return;
     selectedItem.textContent =newText;
+    update_ids();
+
   })
 
   buttonDelete.addEventListener("click", function() {
@@ -64,6 +75,8 @@
     selectedItem.remove();
     todoInput.value ="";
     update_empty_message();
+    update_ids();
+
   });
 
   update_empty_message();
