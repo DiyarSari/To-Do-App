@@ -23,11 +23,11 @@
 
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
-    checkbox.style.marginRight = "8px";
+    checkbox.style.marginRight = "1px";
 
     const idSpan = document.createElement("span");
     idSpan.className = "todo_id";
-    idSpan.style.marginRight = "8px";
+    idSpan.style.marginRight = "1px";
 
     const textSpan = document.createElement("span");
     textSpan.className = "todo_text";
@@ -50,8 +50,6 @@
 
     }
 
-    });
-
     function selectItem(li) {
         if(selectedItem){
             selectedItem.classList.remove("selected");
@@ -64,10 +62,8 @@
     buttonAdd.addEventListener("click", function ()  {
         const text =todoInput.value.trim();
         if (text=== "")return;
-
-        const li = document.createElement("li");
-        li.textContent =text
-        li.className ="todo_item";
+        
+            const li = buildItem(text);
 
         li.addEventListener("click", function () {
             selectItem(li);
@@ -78,13 +74,17 @@
       todoInput.value = "";
       todoInput.focus();
       update_empty_message();
+      update_ids();
   });
 
   buttonUpdate.addEventListener("click", function() {
     if(!selectedItem) return;
     const newText = todoInput.value.trim();
     if(newText=== "")   return;
-    selectedItem.textContent =newText;
+    const textSpan = selectedItem.querySelector(".todo_text");
+    if (textSpan) {
+        textSpan.textContent = newText;
+    }
   })
 
   buttonDelete.addEventListener("click", function() {
@@ -92,6 +92,7 @@
     selectedItem.remove();
     todoInput.value ="";
     update_empty_message();
+    update_ids();
   });
 
   update_empty_message();
