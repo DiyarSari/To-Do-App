@@ -42,6 +42,16 @@
     checkbox.type = "checkbox";
     checkbox.style.marginRight = "5px";
 
+    const trashIcon = document.createElement("span");
+    trashIcon.className = "trash_icon";
+    trashIcon.textContent = "🗑️";
+
+    trashIcon.addEventListener("click", (e) => {
+        e.stopPropagation();
+        selectItem(li);
+    buttonDelete.click();
+    });
+
     checkbox.addEventListener("change", () => {
         const textSpan = li.querySelector(".todo_text");
         if (checkbox.checked) {
@@ -64,9 +74,10 @@
 
     li.appendChild(checkbox); 
     li.appendChild(idSpan);   
-    li.appendChild(textSpan); 
+    li.appendChild(textSpan);
+    li.appendChild(trashIcon);
     update_status();
-
+    
     return li;
     }
 
