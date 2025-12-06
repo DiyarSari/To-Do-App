@@ -23,11 +23,21 @@
 
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
-    checkbox.style.marginRight = "1px";
+    checkbox.style.marginRight = "5px";
+
+    checkbox.addEventListener("change", () => {
+        const textSpan = li.querySelector(".todo_text");
+        if (checkbox.checked) {
+            textSpan.classList.add("completed");
+        } 
+        else {
+            textSpan.classList.remove("completed");
+        }
+    });
 
     const idSpan = document.createElement("span");
     idSpan.className = "todo_id";
-    idSpan.style.marginRight = "1px";
+    idSpan.style.marginRight = "5px";
 
     const textSpan = document.createElement("span");
     textSpan.className = "todo_text";
