@@ -147,8 +147,8 @@ body {
 }
 
 .selected {
-  border-color: #03022e;
-  background: #022c22;
+  border-color: #000000;
+  background: #021f17;
 }
 
 .empty_text {
