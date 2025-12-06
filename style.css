@@ -51,16 +51,14 @@ body {
   gap: 10px;
 }
 
-.todo_item {
-  display: flex;
-  align-items: center;
-  gap: 1px;
-  justify-content: flex-start;
+.input_wrap {
+  position: relative;
 }
 
 .todo_input {
   width: 100%;
   padding: 10px 12px;
+  padding-right: 96px;
   border-radius: 12px;
   border: 1px solid #4b5563;
   background: #020617;
@@ -98,11 +96,6 @@ body {
   transition: transform 0.12s ease, box-shadow 0.18s ease;
 }
 
-.button_delete {
-  display: none;
-}
-
-
 .button_add {
   background: #16a34a;
 }
@@ -117,6 +110,21 @@ body {
   box-shadow: 0 10px 22px rgba(0, 0, 0, 0.6);
 }
 
+.button_add:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.create_inside {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  border-radius: 8px;
+}
+
 .todo_list {
   list-style: none;
   margin-top: 18px;
@@ -128,14 +136,14 @@ body {
 }
 
 .todo_item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   padding: 9px 11px;
   border-radius: 12px;
   background: #020617;
   border: 1px solid #4b5563;
   font-size: 0.95rem;
-  display: flex;
-  align-items: center;
-  gap: 8px;
   cursor: pointer;
   transition: background 0.18s ease, border-color 0.18s ease;
 }
@@ -145,8 +153,16 @@ body {
   border-color: #38bdf8;
 }
 
+.todo_checkbox {
+  margin-right: 5px;
+}
+
+.todo_id {
+  margin-right: 5px;
+}
+
 .selected {
-  border-color: #000000;
+  border-color: #000;
   background: #021f17;
 }
 
@@ -158,16 +174,16 @@ body {
   font-style: italic;
 }
 
-.completed {
-  text-decoration: line-through;
-  opacity: 0.5;
-}
-
 .status_info {
   margin-top: 12px;
   text-align: center;
   font-size: 0.85rem;
   color: #9ca3af;
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
 }
 
 .trash_icon {
@@ -184,33 +200,6 @@ body {
   transform: scale(1.15);
 }
 
-.input_wrap {
-  position: relative;
-}
-
-.create_inside {
-  position: absolute;
-  right: 8px;
-  top: 50%;
-  transform: translateY(-50%);
-  padding: 6px 14px;
-  font-size: 0.8rem;
-  border-radius: 8px;
-}
-
-.todo_checkbox {
-  margin-right: 5px;
-}
-.todo_id {
-  margin-right: 5px;
-}
-
-.button_add:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-/* MOBİL: 0–700px */
 @media (max-width: 700px) {
   body {
     padding: 12px;
@@ -241,8 +230,7 @@ body {
   }
 
   .button_add,
-  .button_update,
-  .button_delete {
+  .button_update {
     padding: 8px 0;
     font-size: 0.8rem;
     border-radius: 12px;
@@ -253,7 +241,6 @@ body {
   }
 }
 
-/* TABLET: 701–1200px */
 @media (min-width: 701px) and (max-width: 1200px) {
   .app_container {
     max-width: 720px;
@@ -271,4 +258,5 @@ body {
     font-size: 0.9rem;
   }
 }
+
 
