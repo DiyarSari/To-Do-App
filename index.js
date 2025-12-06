@@ -28,6 +28,7 @@
     checkbox.addEventListener("change", () => {
         const textSpan = li.querySelector(".todo_text");
         if (checkbox.checked) {
+            alert("Task completed! ✔");
             textSpan.classList.add("completed");
         } 
         else {
