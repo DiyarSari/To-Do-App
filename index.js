@@ -91,6 +91,9 @@ function buildItem(text) {
 
   li.addEventListener("click", () => {
     selectItem(li);
+    const textSpan = li.querySelector(".todo_text");
+    todoInput.value = textSpan.textContent;
+    todoInput.focus();
   });
 
   return li;
