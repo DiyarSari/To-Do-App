@@ -51,6 +51,7 @@
         else {
             textSpan.classList.remove("completed");
         }
+        update_status();
     });
 
     const idSpan = document.createElement("span");
