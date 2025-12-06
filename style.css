@@ -93,11 +93,11 @@ body {
 }
 
 .button_add {
-  background: #16a34a;
+  background: #0a5f29;
 }
 
 .button_update {
-  background: #0284c7;
+  background: #031e4d;
 }
 
 .button_add:hover,
@@ -163,7 +163,7 @@ body {
 
 .selected {
   border-color: #000;
-  background: #021f17;
+  background: #031e4e;
 }
 
 .empty_text {
