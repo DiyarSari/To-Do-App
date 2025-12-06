@@ -147,7 +147,7 @@ body {
 }
 
 .selected {
-  border-color: #22c55e;
+  border-color: #03022e;
   background: #022c22;
 }
 
@@ -157,6 +157,11 @@ body {
   font-size: 0.85rem;
   color: #6b7280;
   font-style: italic;
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
 }
 
 /* MOBİL: 0–700px */
