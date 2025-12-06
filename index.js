@@ -12,6 +12,26 @@ function updateEmptyMessage() {
   emptyText.style.display = todoList.children.length === 0 ? "block" : "none";
 }
 
+function saveData() {
+  let allTasks = [...todoList.children].map(li => {
+    return li.querySelector(".todo_text").textContent;
+  });
+
+  localStorage.setItem("todos", JSON.stringify(allTasks));
+}
+
+function loadData() {
+  let saved = JSON.parse(localStorage.getItem("todos")) || [];
+
+  saved.forEach(text => {
+    const li = buildItem(text);
+    todoList.appendChild(li);
+  });
+
+  updateIds();
+  updateEmptyMessage();
+  updateStatus();
+}
 
 function updateStatus() {
   let completed = 0;
@@ -116,6 +136,7 @@ buttonAdd.addEventListener("click", () => {
   updateEmptyMessage();
   updateIds();
   updateStatus();
+  saveData();
 });
 
 todoInput.addEventListener("keydown", (e) => {
@@ -142,8 +163,12 @@ buttonUpdate.addEventListener("click", () => {
   }
 
   todoInput.value = "";
+  saveData();
+
 });
 
 updateEmptyMessage();
 updateStatus();
+loadData();
+
 
