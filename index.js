@@ -99,6 +99,7 @@ function buildItem(text) {
     updateEmptyMessage();
     updateIds();
     updateStatus();
+    saveData(); 
   });
 
   li.appendChild(checkbox);
