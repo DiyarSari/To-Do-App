@@ -6,8 +6,9 @@ const buttonUpdate = document.getElementById("button_update");
 const statusInfo  = document.getElementById("status_info");
 
 let selectedItem = null;
-buttonAdd.disabled = true; 
-buttonUpdate.disabled = true;
+let isDisabled = true;
+buttonAdd.disabled = true;
+buttonUpdate.disabled = isDisabled;
 
 function updateEmptyMessage() {
   emptyText.style.display = todoList.children.length === 0 ? "block" : "none";
@@ -94,14 +95,26 @@ function buildItem(text) {
     e.stopPropagation();
     if (selectedItem === li) {
       selectedItem = null;
+      selectedItem.classList.remove("selected");
+      todoInput.value = ""; 
+    } 
+
+    let result = confirm("Do you want to Delete ❌");
+    if (result) {
+       li.remove();
+      todoInput.value = "";
+      buttonAdd.disabled = true;
+      updateEmptyMessage();
+      updateIds();
+      updateStatus();
+      saveData(); 
+      isDisabled = true;
+      document.getElementById("button_update").disabled = isDisabled; 
+    } else {
+      isDisabled = false;
+      document.getElementById("button_update").disabled = isDisabled; 
     }
-    alert("List Item Deleted! ❌");
-    li.remove();
-    todoInput.value = "";
-    updateEmptyMessage();
-    updateIds();
-    updateStatus();
-    saveData(); 
+
   });
 
   li.appendChild(checkbox);
@@ -109,12 +122,14 @@ function buildItem(text) {
   li.appendChild(textSpan);
   li.appendChild(trashIcon);
 
-  li.addEventListener("click", () => {
+  li.addEventListener("click", (e) => {
+    e.stopPropagation();
     selectItem(li);
     todoInput.value = textSpan.textContent;
     todoInput.focus();
   });
-
+    isDisabled = true;
+     document.getElementById("button_update").disabled = isDisabled; 
   return li;
 }
 
@@ -124,7 +139,8 @@ function selectItem(li) {
   }
   selectedItem = li;
   selectedItem.classList.add("selected");
-  buttonUpdate.disabled = false;
+  isDisabled = false;
+  buttonUpdate.disabled = isDisabled;
 }
 
 buttonAdd.addEventListener("click", () => {
@@ -135,6 +151,7 @@ buttonAdd.addEventListener("click", () => {
 
   todoList.appendChild(li);
   todoInput.value = "";
+  buttonAdd.disabled = true;
   todoInput.focus();
 
   updateEmptyMessage();
@@ -167,9 +184,31 @@ buttonUpdate.addEventListener("click", () => {
   }
 
   todoInput.value = "";
+  buttonAdd.disabled = true;
+  isDisabled = true;
+  buttonUpdate.disabled = isDisabled;
+  selectedItem.classList.remove("selected");
+  selectedItem = null;
   saveData();
 
 });
+
+document.body.addEventListener("click", () => {
+  if (selectedItem) {
+    selectedItem.classList.remove("selected");
+    selectedItem = null;
+    isDisabled = true;
+    buttonUpdate.disabled = isDisabled;
+  }
+});
+
+todoInput.addEventListener("click", (e) => e.stopPropagation());
+document.body.addEventListener("click", () => {
+    if (!selectedItem) {
+        todoInput.value = "";
+    }
+});
+
 
 updateEmptyMessage();
 updateStatus();
