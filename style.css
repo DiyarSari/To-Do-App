@@ -98,6 +98,7 @@ body {
 
 .button_update {
   background: #031e4d;
+
 }
 
 .button_add:hover,
@@ -106,6 +107,11 @@ body {
 }
 
 .button_add:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.button_update:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }

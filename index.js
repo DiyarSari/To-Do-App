@@ -7,6 +7,7 @@ const statusInfo  = document.getElementById("status_info");
 
 let selectedItem = null;
 buttonAdd.disabled = true; 
+buttonUpdate.disabled = true;
 
 function updateEmptyMessage() {
   emptyText.style.display = todoList.children.length === 0 ? "block" : "none";
@@ -94,6 +95,7 @@ function buildItem(text) {
     if (selectedItem === li) {
       selectedItem = null;
     }
+    alert("List Item Deleted! ❌");
     li.remove();
     todoInput.value = "";
     updateEmptyMessage();
@@ -122,6 +124,7 @@ function selectItem(li) {
   }
   selectedItem = li;
   selectedItem.classList.add("selected");
+  buttonUpdate.disabled = false;
 }
 
 buttonAdd.addEventListener("click", () => {
