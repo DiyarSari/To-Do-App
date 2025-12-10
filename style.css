@@ -102,7 +102,6 @@ body {
 
 .button_add:hover,
 .button_update:hover {
-  transform: translateY(-1px);
   box-shadow: 0 10px 22px rgba(0, 0, 0, 0.6);
 }
 

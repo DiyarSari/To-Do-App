@@ -17,11 +17,11 @@ function saveData() {
     return li.querySelector(".todo_text").textContent;
   });
 
-  localStorage.setItem("todos", JSON.stringify(allTasks));
+  localStorage.setItem("tasks", JSON.stringify(allTasks));
 }
 
 function loadData() {
-  let saved = JSON.parse(localStorage.getItem("todos")) || [];
+  let saved = JSON.parse(localStorage.getItem("tasks")) || [];
 
   saved.forEach(text => {
     const li = buildItem(text);
