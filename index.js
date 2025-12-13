@@ -92,29 +92,27 @@ function buildItem(text) {
   trashIcon.textContent = "🗑️";
 
   trashIcon.addEventListener("click", (e) => {
+
     e.stopPropagation();
-    if (selectedItem === li) {
-      selectedItem = null;
-      selectedItem.classList.remove("selected");
-      todoInput.value = ""; 
-    } 
-
     let result = confirm("Do you want to Delete ❌");
-    if (result) {
-       li.remove();
-      todoInput.value = "";
-      buttonAdd.disabled = true;
-      updateEmptyMessage();
-      updateIds();
-      updateStatus();
-      saveData(); 
-      isDisabled = true;
-      document.getElementById("button_update").disabled = isDisabled; 
-    } else {
-      isDisabled = false;
-      document.getElementById("button_update").disabled = isDisabled; 
-    }
+    if (!result) return;
 
+    if (selectedItem === li) {
+    li.classList.remove("selected"); 
+    selectedItem = null;
+    todoInput.value = "";
+    isDisabled = true;
+    buttonUpdate.disabled = true;
+  }
+
+  li.remove();
+  todoInput.value = "";
+  buttonAdd.disabled = true;
+
+  updateEmptyMessage();
+  updateIds();
+  updateStatus();
+  saveData();
   });
 
   li.appendChild(checkbox);
