@@ -208,6 +208,8 @@ body {
 @media (max-width: 700px) {
   body {
     padding: 12px;
+    align-items: flex-start; 
+    justify-content: flex-start;
   }
 
   .app_container {
@@ -215,6 +217,8 @@ body {
   }
 
   .todo_card {
+    width: 100%;
+    margin-top: 50px;
     padding: 20px 16px;
     border-radius: 14px;
   }
@@ -242,7 +246,7 @@ body {
   }
 
   .todo_list {
-    max-height: 220px;
+    max-height: 340px;
   }
 }
 
