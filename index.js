@@ -16,7 +16,11 @@ function updateEmptyMessage() {
 
 function saveData() {
   let allTasks = [...todoList.children].map(li => {
-    return li.querySelector(".todo_text").textContent;
+    return {
+    text: li.querySelector(".todo_text").textContent,
+    done: li.querySelector("input[type='checkbox']").checked
+    };
+
   });
 
   localStorage.setItem("tasks", JSON.stringify(allTasks));
@@ -25,8 +29,12 @@ function saveData() {
 function loadData() {
   let saved = JSON.parse(localStorage.getItem("tasks")) || [];
 
-  saved.forEach(text => {
-    const li = buildItem(text);
+  saved.forEach(item => {
+    
+    const text = (typeof item ===  "string") ? item :item.text;
+    const done  = (typeof item ===  "string") ? false : item.done;
+    
+    const li = buildItem(text,done);
     todoList.appendChild(li);
   });
 
@@ -61,7 +69,7 @@ function updateIds() {
   });
 }
 
-function buildItem(text) {
+function buildItem(text,done=false) {
   const li = document.createElement("li");
   li.className = "todo_item";
 
@@ -78,6 +86,7 @@ function buildItem(text) {
       textSpan.classList.remove("completed");
     }
     updateStatus();
+    saveData();
   });
  
   const idSpan = document.createElement("span");
@@ -86,6 +95,9 @@ function buildItem(text) {
   const textSpan = document.createElement("span");
   textSpan.className = "todo_text";
   textSpan.textContent = text;
+  
+  checkbox.checked = done;
+  if (done) textSpan.classList.add("completed");
 
   const trashIcon = document.createElement("span");
   trashIcon.className = "trash_icon";
