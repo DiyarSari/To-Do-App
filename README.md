@@ -27,65 +27,16 @@ A simple and intuitive to-do list application built with vanilla JavaScript. Man
 3. **Update a Task**: Select a task, edit it in the input field, and click "Update"
 4. **Delete a Task**: Click the delete button on any task to remove it
 
-## API Reference
+## How It Works
 
-### Browser Storage API - localStorage
+The app stores all data locally in your browser using **localStorage**. No backend server or external API is needed - everything runs in your browser.
 
-This app uses the **HTML5 localStorage API** for data persistence.
+### Core Functions
 
-#### Saving Data
-
-```javascript
-saveData();
-```
-
-Saves all tasks to localStorage with their text and completion status.
-
-**Storage Format:**
-```javascript
-{
-  "text": "Task description",
-  "done": false
-}
-```
-
-#### Loading Data
-
-```javascript
-loadData();
-```
-
-Retrieves all previously saved tasks from localStorage on page load.
-
-#### localStorage Methods Used
-
-| Method | Description |
-|--------|-------------|
-| `localStorage.setItem(key, value)` | Stores data as JSON string |
-| `localStorage.getItem(key)` | Retrieves stored JSON data |
-| `JSON.stringify()` | Converts objects to JSON string for storage |
-| `JSON.parse()` | Converts JSON string back to JavaScript objects |
-
-### DOM Manipulation API
-
-The app uses standard DOM methods:
-
-- `document.getElementById()` - Access HTML elements
-- `addEventListener()` - Handle user interactions
-- `appendChild()` - Add tasks to the list
-- `createElement()` - Create new task elements
-- `querySelector()` - Select specific elements within tasks
-
-### Status Tracking API
-
-```javascript
-updateStatus();
-```
-
-Calculates and displays:
-- Total tasks
-- Completed tasks
-- Pending tasks
+- `saveData()` - Saves tasks to localStorage
+- `loadData()` - Loads tasks from browser storage on startup
+- `updateStatus()` - Updates task counter (completed vs pending)
+- `updateEmptyMessage()` - Shows/hides empty state message
 
 ## Technology Stack
 
